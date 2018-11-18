@@ -17,7 +17,7 @@ public class SearchEngine {
 
 	//Fields for a Person
 	// public Department[] departmentList;
-	public ArrayList<Organization> organizationList = new ArrayList<Organization>(10000);
+	public static ArrayList<Organization> organizationList = new ArrayList<Organization>(10000);
 	public ArrayList<Volunteer> volunteerList = new ArrayList<Volunteer>(10000);
 	public ArrayList<ConvictUser> convictUserList = new ArrayList<ConvictUser>(10000);
 	public ArrayList<ProbationOfficer> probationOfficerList = new ArrayList<ProbationOfficer>(10000);
@@ -135,6 +135,11 @@ public class SearchEngine {
 		double distanceFromUser = -1;
 		distanceFromUser = Math.sqrt((u.getLocX() - e.getLocX())*(u.getLocX() - e.getLocX()) + (u.getLocY() - e.getLocY())*(u.getLocY() - e.getLocY()));
 		return distanceFromUser;
+	}
+	
+	public static int getOrgListSize() {
+		
+		return organizationList.size();
 	}
 	
 	public String determineCSH(Event e) {
