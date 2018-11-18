@@ -1,8 +1,9 @@
 package Person;
 
-import java.awt.Event;
+//import java.awt.Event;
 import java.util.ArrayList;
 import java.util.Collections;
+import Thing.Event;
 
 
 public abstract class User {
@@ -13,19 +14,20 @@ public abstract class User {
 	private double locY;
 	private double travelRadius;
 	
-	private ArrayList<String> equipment = new ArrayList<String>(300);
-	private ArrayList<Event> scheduledEvents = new ArrayList<Event>(300);
-
-	public ArrayList<Integer> availability = new ArrayList<Integer>(300);
-	
+	private ArrayList<Event> scheduledEvents = new ArrayList<Event>(300);   // not sure the purpose of this AL
+	private ArrayList<Integer> eventCodes = new ArrayList<Integer>(300);
 	public ArrayList<Integer> schedule = new ArrayList<Integer>(300);
+	
+	
+	private ArrayList<String> equipment = new ArrayList<String>(300);
+	public ArrayList<Integer> availability = new ArrayList<Integer>(300);
 	/* we can use a scheduling code similar to the university assignment.
 	 * -three digit numbers denoting day and hour-long time slot
 	 * first digit: 1 = Monday ... 7 = Sunday
 	 * last 2 digits: military hour -- 00 = midnight, 16 = 4:00pm 
 	 * so 319 = Wednesday 7-8pm
 	 * */
-
+	
 	public User() {
 		name = "No Name";
 	}
@@ -112,6 +114,7 @@ public abstract class User {
 	}
 	public void addEvent(Event e1) {
 		this.scheduledEvents.add(e1);
+		this.eventCodes.add(e1.getEventCode());
 	}
 	public void removeEvent(Event e1) {
 		this.scheduledEvents.remove(e1);
