@@ -1,6 +1,7 @@
 package Person;
 
 import java.util.ArrayList;
+import Search.SearchEngine;
 
 import Thing.Event;
 
@@ -8,9 +9,12 @@ public class Organization {
 	private String name;
 	protected ArrayList<Event> events = new ArrayList<Event>(300);
 	protected ArrayList<User> blacklist = new ArrayList<User>(150);
+	protected int orgCode;
 	
 	public Organization (){
 		name = "null";
+		orgCode = SearchEngine.getOrgListSize();
+
 	}
 	
 	public String getName() {
@@ -28,7 +32,11 @@ public class Organization {
 			System.out.println("");
 			return;
 		}
+		
 		this.events.add(event);
+		int i = events.size();
+		events.get(i-1).setEventCode((orgCode * 100) + i);
+		
 	}
 
 }
