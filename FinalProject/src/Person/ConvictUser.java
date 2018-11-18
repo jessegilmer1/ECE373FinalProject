@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 
-public  class ConvictUser extends User{
+public  class ConvictUser extends User{//test commit
 
 	private int hoursRequired; //assigned number of community service hours
 	private int hoursCompleted = 0;
