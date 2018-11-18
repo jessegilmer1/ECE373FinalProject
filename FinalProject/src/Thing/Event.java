@@ -13,9 +13,10 @@ public class Event {
 	private String dateString; //ADDED
 	private double locX;
 	private double locY;
+	private int eventCode;
 	private int maxUsers;
-	private ArrayList<Integer> timeSlots = new ArrayList<Integer>(150);  // corrected declaration and changed to ints
 	private boolean cshEligible;
+	private ArrayList<Integer> timeSlots = new ArrayList<Integer>(150);  // corrected declaration and changed to ints
 	private ArrayList<User> volunteers = new ArrayList<User>(100);
 	private ArrayList<String> equipments = new ArrayList<String>(100);
 	private Organization o = new Organization();
@@ -26,6 +27,12 @@ public class Event {
 	}
 	public void setMaxUsers(int i) {
 		maxUsers = i;
+	}
+	public void setEventCode(int e) {
+		this.eventCode = e;
+	}
+	public int getEventCode() {
+		return eventCode;
 	}
 	public void setOrganization(Organization q) {
 		o = q;
