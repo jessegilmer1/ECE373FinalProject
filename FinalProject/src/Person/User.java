@@ -18,7 +18,6 @@ public abstract class User {
 	private ArrayList<Integer> eventCodes = new ArrayList<Integer>(300);
 	public ArrayList<Integer> schedule = new ArrayList<Integer>(300);
 	
-	
 	private ArrayList<String> equipment = new ArrayList<String>(300);
 	public ArrayList<Integer> availability = new ArrayList<Integer>(300);
 	/* we can use a scheduling code similar to the university assignment.
@@ -57,14 +56,14 @@ public abstract class User {
 	}
 	public ArrayList<Integer> getAvailability() {
 		return availability;
-	}
-	
+	}	
 	public void printSchedule() {
 		// like "Mon 9:30am to 10:45am"
 		Collections.sort(schedule);
-		
+		System.out.println(this.name + "'s schedule: " );
+
 		for(int i=0; i < schedule.size(); i++) {
-			System.out.println(convertScheduleCodeDay(schedule.get(i)) + convertScheduleCodeTime(schedule.get(i)));
+			System.out.println("     " + scheduledEvents.get(i).getName() + " " + convertScheduleCodeDay(schedule.get(i)) + convertScheduleCodeTime(schedule.get(i)));
 		}
 			
 	}
@@ -113,8 +112,18 @@ public abstract class User {
 		}
 	}
 	public void addEvent(Event e1) {
-		this.scheduledEvents.add(e1);
+		if (e1.checkBlacklistForUser(this)) {
+			System.out.println("User has been blacklisted by organization. Could not add event.");
+			return;
+		}
 		this.eventCodes.add(e1.getEventCode());
+		for (int i = 0; i < e1.getTimeSlots().size(); i++) {
+			this.scheduledEvents.add(e1);
+
+			addToSchedule(e1.getTimeSlots().get(i));
+		}
+		System.out.println(this.name + " has been added to " + e1.getName());
+		return;
 	}
 	public void removeEvent(Event e1) {
 		this.scheduledEvents.remove(e1);

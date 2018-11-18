@@ -10,7 +10,6 @@ public class Event {
 	
 	private String name;
 	private String workType;
-	private String dateString; //ADDED
 	private double locX;
 	private double locY;
 	private int eventCode;
@@ -37,12 +36,7 @@ public class Event {
 	public void setOrganization(Organization q) {
 		o = q;
 	}	
-	public String getDateString() {
-		return dateString;
-	}
-	public void setDateString(String d) {
-		dateString = d;
-	}
+
 	public String getName() {
 		return name;
 	}
@@ -227,6 +221,8 @@ public class Event {
 	public void setWorkType(String workType) {
 		this.workType = workType;
 	} 
-	
+	public boolean checkBlacklistForUser(User u) {
+		return o.checkBlacklistForUser(u);
+	}
 	
 }

@@ -32,7 +32,6 @@ public class SearchEngine {
 		ArrayList<Event> searchResults = new ArrayList<Event>(1000);
 		for(int i = 0; i < organizationList.size(); i++) {
 			for(int j = 0; j < organizationList.get(i).getEvents().size(); j++) {
-				if (dateString == organizationList.get(i).getEvents().get(j).getDateString()) {
 					//	ok, here check time slots
 					//	and add if they share time slots
 					for(int k = 0; k < organizationList.get(i).getEvents().get(j).getTimeSlots().size(); k++) {
@@ -42,7 +41,7 @@ public class SearchEngine {
 						}
 					}
 							
-				}
+				
 			}
 		}
 		
@@ -70,7 +69,6 @@ public class SearchEngine {
 		
 		for(int i = 0; i < organizationList.size(); i++) {
 			for(int j = 0; j < organizationList.get(i).getEvents().size(); j++) {
-				if (dateString == organizationList.get(i).getEvents().get(j).getDateString()) {
 					//	ok, here check time slots
 					//	and add if they share time slots
 					for(int k = 0; k < organizationList.get(i).getEvents().get(j).getTimeSlots().size(); k++) {
@@ -81,7 +79,7 @@ public class SearchEngine {
 						}
 					}
 							
-				}
+				
 			}
 		}
 		
